@@ -1,0 +1,656 @@
+{
+ "rid": "scenario",
+ "mode": "partial",
+ "ok": true,
+ "rho": 0.6,
+ "delta": 2,
+ "n_goals": 5,
+ "status": {
+  "0": "new",
+  "1": "reuse",
+  "2": "new",
+  "3": "switch",
+  "4": "reuse"
+ },
+ "cover": {
+  "1": [
+   "MAR.longstay.docs"
+  ],
+  "3": [
+   "MAR.longstay.fee",
+   "MAR.longstay.appt_p"
+  ],
+  "4": [
+   "MAR.longstay.sub"
+  ],
+  "0": [
+   "MAR.longstay.elig_r"
+  ],
+  "2": [
+   "MAR.longstay.extra_a"
+  ]
+ },
+ "fragments": [
+  "MAR.ent",
+  "MAR.longstay.appt_p",
+  "MAR.longstay.docs",
+  "MAR.longstay.elig_r",
+  "MAR.longstay.extra_a",
+  "MAR.longstay.fee",
+  "MAR.longstay.sub"
+ ],
+ "junctions": [
+  [
+   "MAR.longstay.appt_p",
+   "MAR.longstay.sub"
+  ],
+  [
+   "MAR.longstay.elig_r",
+   "MAR.longstay.appt_p"
+  ],
+  [
+   "MAR.longstay.docs",
+   "MAR.longstay.appt_p"
+  ],
+  [
+   "MAR.longstay.fee",
+   "MAR.longstay.appt_p"
+  ],
+  [
+   "MAR.longstay.extra_a",
+   "MAR.longstay.appt_p"
+  ],
+  [
+   "MAR.ent",
+   "MAR.longstay.docs"
+  ],
+  [
+   "MAR.ent",
+   "MAR.longstay.extra_a"
+  ],
+  [
+   "MAR.ent",
+   "MAR.longstay.fee"
+  ],
+  [
+   "MAR.ent",
+   "MAR.longstay.elig_r"
+  ]
+ ],
+ "witnesses": {
+  "0": {
+   "record": "c-09e31095",
+   "m": [
+    0.292,
+    0.294,
+    0.2
+   ],
+   "tier": "C_e",
+   "t": 10.0,
+   "nu": [
+    0,
+    10000000
+   ],
+   "status": "new",
+   "failed": "V3",
+   "fragments": [
+    "MAR.longstay.elig_r"
+   ],
+   "omega": [
+    "eligible:MAR.longstay"
+   ],
+   "line": "verify my renewal eligibility for the long-stay residence pe: composed anew with ['MAR.longstay.elig_r'] (previous reuse refused: V3)"
+  },
+  "1": {
+   "record": "c-09e31095",
+   "m": [
+    0.447,
+    0.297,
+    0.2
+   ],
+   "tier": "C_e",
+   "t": 10.0,
+   "nu": [
+    0,
+    10000000
+   ],
+   "status": "reuse",
+   "stamps": {
+    "MAR.longstay.docs": 1
+   },
+   "fragments": [
+    "MAR.longstay.docs"
+   ],
+   "omega": [
+    "docs_ok:MAR.longstay"
+   ],
+   "line": "check my documents for the long-stay residence permit in Mor: reused from record c-09e31095 (tier C_e), match 0.94 = 0.45 + 0.30 + 0.20, valid at t=10.0 within window [0, 10000000]"
+  },
+  "2": {
+   "status": "new",
+   "failed": "no-match",
+   "fragments": [
+    "MAR.longstay.extra_a"
+   ],
+   "omega": [
+    "extra_ok:MAR.longstay"
+   ],
+   "line": "validate my proof of funds from the new employment contract : composed anew with ['MAR.longstay.extra_a'] (previous reuse refused: no-match)"
+  },
+  "3": {
+   "record": "c-09e31095",
+   "m": [
+    0.299,
+    0.282,
+    0.2
+   ],
+   "tier": "C_e",
+   "t": 10.0,
+   "nu": [
+    0,
+    10000000
+   ],
+   "switched_from": [
+    "MAR.longstay.fee",
+    "MAR.longstay.appt_s"
+   ],
+   "status": "switch",
+   "stamps": {
+    "MAR.longstay.fee": 1,
+    "MAR.longstay.appt_s": 1
+   },
+   "fragments": [
+    "MAR.longstay.fee",
+    "MAR.longstay.appt_p"
+   ],
+   "omega": [
+    "appt_booked:MAR.longstay",
+    "fee_paid:MAR.longstay"
+   ],
+   "line": "book the earliest priority appointment for the long-stay res: switched variant of from record c-09e31095 (tier C_e), match 0.78 = 0.30 + 0.28 + 0.20, valid at t=10.0 within window [0, 10000000], ['MAR.longstay.fee', 'MAR.longstay.appt_s'] replaced by ['MAR.longstay.fee', 'MAR.longstay.appt_p'] because the guard no longer holds"
+  },
+  "4": {
+   "record": "c-09e31095",
+   "m": [
+    0.437,
+    0.295,
+    0.2
+   ],
+   "tier": "C_e",
+   "t": 10.0,
+   "nu": [
+    0,
+    10000000
+   ],
+   "status": "reuse",
+   "stamps": {
+    "MAR.longstay.sub": 1
+   },
+   "fragments": [
+    "MAR.longstay.sub"
+   ],
+   "omega": [
+    "notified:MAR.longstay",
+    "submitted:MAR.longstay"
+   ],
+   "line": "notify me by <CHANNEL> for the long-stay residence permit in: reused from record c-09e31095 (tier C_e), match 0.93 = 0.44 + 0.29 + 0.20, valid at t=10.0 within window [0, 10000000], slots channel := SMS"
+  }
+ },
+ "explanation": "verify my renewal eligibility for the long-stay residence pe: composed anew with ['MAR.longstay.elig_r'] (previous reuse refused: V3)\ncheck my documents for the long-stay residence permit in Mor: reused from record c-09e31095 (tier C_e), match 0.94 = 0.45 + 0.30 + 0.20, valid at t=10.0 within window [0, 10000000]\nvalidate my proof of funds from the new employment contract : composed anew with ['MAR.longstay.extra_a'] (previous reuse refused: no-match)\nbook the earliest priority appointment for the long-stay res: switched variant of from record c-09e31095 (tier C_e), match 0.78 = 0.30 + 0.28 + 0.20, valid at t=10.0 within window [0, 10000000], ['MAR.longstay.fee', 'MAR.longstay.appt_s'] replaced by ['MAR.longstay.fee', 'MAR.longstay.appt_p'] because the guard no longer holds\nnotify me by <CHANNEL> for the long-stay residence permit in: reused from record c-09e31095 (tier C_e), match 0.93 = 0.44 + 0.29 + 0.20, valid at t=10.0 within window [0, 10000000], slots channel := SMS\nrejected ['C:866f7c1f7166d81a', 'MAR.longstay.elig_f'] by chi_fun\nrejected ['MAR.longstay.extra_b'] by chi_rol",
+ "repairs": 0,
+ "stats": {
+  "t": {
+   "abstraction": 0.00038310200000069017,
+   "decompose": 0.019368855999999823,
+   "encoding": 0.0016093009999949004,
+   "recall": 0.0011497329999983208,
+   "revalidation": 0.00025029000000387214,
+   "recompose": 0.0022806839999987005,
+   "verify": 0.00045914199999685934,
+   "explain": 0.0001709960000013666,
+   "memory": 0.0005930530000028966,
+   "promotion": 5.291200000101526e-05
+  },
+  "calls": {
+   "cur": 1,
+   "int": 1,
+   "pln": 1,
+   "sel": 2,
+   "com": 1,
+   "exp": 1
+  },
+  "tok_in": {
+   "cur": 125,
+   "int": 120,
+   "pln": 117,
+   "sel": 323,
+   "com": 33,
+   "exp": 583
+  },
+  "tok_out": {
+   "cur": 103,
+   "int": 119,
+   "pln": 162,
+   "sel": 18,
+   "com": 16,
+   "exp": 247
+  },
+  "pred": {
+   "ann": 7,
+   "V5": 5,
+   "V1": 4,
+   "V2": 4,
+   "V3": 5,
+   "V4": 4,
+   "chi_rol": 18,
+   "chi_dat": 18,
+   "chi_tmp": 17,
+   "guard": 32,
+   "chi_fun": 14,
+   "c4": 9,
+   "sound": 11,
+   "promo": 1
+  },
+  "llm_ms": {
+   "cur": 2588.8888888888887,
+   "int": 2942.4444444444443,
+   "pln": 3896.8,
+   "sel": 1029.2,
+   "com": 618.7555555555555,
+   "exp": 5972.0888888888885
+  },
+  "total_ms": 17074.495846777776,
+  "compute_ms": 26.318068999998445,
+  "llm_total_ms": 17048.17777777778,
+  "calls_total": 7,
+  "tok_in_total": 1301,
+  "tok_out_total": 665
+ },
+ "composition": {
+  "elements": [
+   {
+    "id": "MAR.ent",
+    "type": "ENT",
+    "kind": "atm",
+    "text": "Identity check and dossier opening at the Morocco administration",
+    "pre": [
+     "applicant_present",
+     "jur:MAR"
+    ],
+    "post": [
+     "dossier_open:MAR"
+    ],
+    "inputs": [
+     "id_scan"
+    ],
+    "outputs": [
+     "dossier"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": null,
+    "origin": "entry"
+   },
+   {
+    "id": "MAR.longstay.docs",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Document collection and verification for a long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "docs_ok:MAR.longstay"
+    ],
+    "inputs": [
+     "proofs"
+    ],
+    "outputs": [
+     "verified_dossier"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 1,
+    "origin": "reuse"
+   },
+   {
+    "id": "MAR.longstay.elig_r",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Renewal eligibility assessment for an existing long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR",
+     "valid_permit_held"
+    ],
+    "post": [
+     "eligible:MAR.longstay"
+    ],
+    "inputs": [],
+    "outputs": [
+     "eligibility_decision"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 0,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.extra_a",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Validation of the proof of funds for a long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "extra_ok:MAR.longstay"
+    ],
+    "inputs": [
+     "extra_doc"
+    ],
+    "outputs": [
+     "extra_review"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 2,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.fee",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Fee payment and receipt for a long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "fee_paid:MAR.longstay"
+    ],
+    "inputs": [
+     "payment_method"
+    ],
+    "outputs": [
+     "receipt"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 3,
+    "origin": "switch"
+   },
+   {
+    "id": "MAR.longstay.appt_p",
+    "type": "VAR",
+    "kind": "atm",
+    "text": "Priority expedited appointment booking for a long-stay residence permit in Morocco",
+    "pre": [
+     "docs_ok:MAR.longstay",
+     "dossier_open:MAR",
+     "fee_paid:MAR.longstay",
+     "jur:MAR"
+    ],
+    "post": [
+     "appt_booked:MAR.longstay"
+    ],
+    "inputs": [],
+    "outputs": [
+     "appointment"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "priority_status",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 3,
+    "origin": "switch"
+   },
+   {
+    "id": "MAR.longstay.sub",
+    "type": "TER",
+    "kind": "atm",
+    "text": "Submission of the long-stay residence permit application and applicant notification in Morocco",
+    "pre": [
+     "appt_booked:MAR.longstay",
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "notified:MAR.longstay",
+     "submitted:MAR.longstay"
+    ],
+    "inputs": [
+     "application_form"
+    ],
+    "outputs": [
+     "receipt_of_submission"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 4,
+    "origin": "reuse"
+   }
+  ],
+  "relations": [
+   {
+    "edge": "MAR.longstay.e1.Xr",
+    "pattern": "and",
+    "guard": "",
+    "tail": [
+     "MAR.ent"
+    ],
+    "head": [
+     "MAR.longstay.docs",
+     "MAR.longstay.elig_r",
+     "MAR.longstay.extra_a",
+     "MAR.longstay.fee"
+    ]
+   },
+   {
+    "edge": "MAR.longstay.e2.Xr",
+    "pattern": "xor",
+    "guard": "priority_status",
+    "tail": [
+     "MAR.longstay.docs",
+     "MAR.longstay.elig_r",
+     "MAR.longstay.extra_a",
+     "MAR.longstay.fee"
+    ],
+    "head": [
+     "MAR.longstay.appt_p"
+    ]
+   },
+   {
+    "edge": "MAR.longstay.e4",
+    "pattern": "seq",
+    "guard": "",
+    "tail": [
+     "MAR.longstay.appt_p"
+    ],
+    "head": [
+     "MAR.longstay.sub"
+    ]
+   }
+  ],
+  "junctions": [
+   [
+    "MAR.longstay.appt_p",
+    "MAR.longstay.sub"
+   ],
+   [
+    "MAR.longstay.elig_r",
+    "MAR.longstay.appt_p"
+   ],
+   [
+    "MAR.longstay.docs",
+    "MAR.longstay.appt_p"
+   ],
+   [
+    "MAR.longstay.fee",
+    "MAR.longstay.appt_p"
+   ],
+   [
+    "MAR.longstay.extra_a",
+    "MAR.longstay.appt_p"
+   ],
+   [
+    "MAR.ent",
+    "MAR.longstay.docs"
+   ],
+   [
+    "MAR.ent",
+    "MAR.longstay.extra_a"
+   ],
+   [
+    "MAR.ent",
+    "MAR.longstay.fee"
+   ],
+   [
+    "MAR.ent",
+    "MAR.longstay.elig_r"
+   ]
+  ],
+  "verification": {
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true,
+   "C5": true
+  },
+  "repair_rounds": 0
+ },
+ "rejections": [
+  [
+   "MAR.longstay.elig_f",
+   "chi_fun"
+  ],
+  [
+   "C:866f7c1f7166d81a",
+   "chi_fun"
+  ],
+  [
+   "MAR.longstay.extra_b",
+   "chi_rol"
+  ]
+ ],
+ "failed_checks": {
+  "0": "V3"
+ },
+ "verification": {
+  "C1": true,
+  "C2": true,
+  "C3": true,
+  "C4": true,
+  "C5": true
+ },
+ "goals": [
+  {
+   "gid": 0,
+   "key": [
+    "MAR.longstay",
+    "elig",
+    "renew"
+   ],
+   "text": "verify my renewal eligibility for the long-stay residence permit in Morocco",
+   "slots": {}
+  },
+  {
+   "gid": 1,
+   "key": [
+    "MAR.longstay",
+    "docs",
+    ""
+   ],
+   "text": "check my documents for the long-stay residence permit in Morocco",
+   "slots": {}
+  },
+  {
+   "gid": 2,
+   "key": [
+    "MAR.longstay",
+    "extra",
+    ""
+   ],
+   "text": "validate my proof of funds from the new employment contract for the long-stay residence permit in Morocco",
+   "slots": {}
+  },
+  {
+   "gid": 3,
+   "key": [
+    "MAR.longstay",
+    "appt",
+    ""
+   ],
+   "text": "book the earliest priority appointment for the long-stay residence permit in Morocco",
+   "slots": {}
+  },
+  {
+   "gid": 4,
+   "key": [
+    "MAR.longstay",
+    "sub",
+    ""
+   ],
+   "text": "notify me by <CHANNEL> for the long-stay residence permit in Morocco",
+   "slots": {
+    "channel": "SMS"
+   }
+  }
+ ]
+}

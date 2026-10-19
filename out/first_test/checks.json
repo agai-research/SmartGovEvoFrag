@@ -1,0 +1,86 @@
+[
+ [
+  "composite C1 over {F2, F3, F4} promoted",
+  true
+ ],
+ [
+  "mode is partial",
+  true
+ ],
+ [
+  "rho = 3/5",
+  true
+ ],
+ [
+  "documents reused (F3)",
+  true
+ ],
+ [
+  "submission reused with channel SMS",
+  true
+ ],
+ [
+  "appointment switched F5 -> F7 with the fee fragment kept",
+  true
+ ],
+ [
+  "eligibility and contract validation recomposed",
+  true
+ ],
+ [
+  "renewal eligibility failed re-validation at V3",
+  true
+ ],
+ [
+  "F2 rejected by chi_fun and F17 by chi_rol",
+  true
+ ],
+ [
+  "F2r and F16 selected",
+  true
+ ],
+ [
+  "all feasibility checks hold",
+  true
+ ],
+ [
+  "every connection touching a new fragment is junction-checked",
+  true
+ ],
+ [
+  "first_std is served",
+  true
+ ],
+ [
+  "light_unseen is served",
+  true
+ ],
+ [
+  "terse is served",
+  true
+ ],
+ [
+  "trap is served",
+  true
+ ],
+ [
+  "event (i) invalidates nothing and rebinds",
+  true
+ ],
+ [
+  "event (ii) marks dependants suspect",
+  true
+ ],
+ [
+  "composite C1 is withdrawn or re-versioned after event (ii)",
+  true
+ ],
+ [
+  "a request after the event is served and verified",
+  true
+ ],
+ [
+  "the revised document fragment is used with its bridge",
+  true
+ ]
+]
